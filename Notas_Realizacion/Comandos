@@ -1,0 +1,45 @@
+## Iniciar el proyecto
+- En una terminal correr el comando 
+php artisan serve
+
+- En otro terminal correr el comando 
+npm run dev
+## Crear migraciones
+php artisan make:migration create_categories_table
+php artisan make:migration create_products_table
+
+## Correr Migraciones
+php artisan migrate --seed
+
+## Instalar Bootstrap
+- Primero corran el comando 
+ npm install bootstrap@5.3.1 @popperjs/core
+- Después busquen los archivos resources/css/app.css y resources/css/app.js y peguen esto
+- En el resources/css/app.css 
+@import 'bootstrap/dist/css/bootstrap.min.css';
+- en el resources/css/app.js
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+## Instalar los mensajes de guardado y borrado
+- Correr el comando 
+ npm install sweetalert2
+
+- En resources crear un archivo que se llame toast.js y pegar este código
+import Swal from 'sweetalert2';
+
+window.showToast = (message, type = 'success') => {
+    Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: type,
+        title: message,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+    });
+};
+
+- En resources/js/app.js pegar
+import './toast';
